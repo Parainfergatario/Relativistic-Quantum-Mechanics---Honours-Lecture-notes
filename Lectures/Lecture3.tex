@@ -1,0 +1,172 @@
+\section{Lecture 3}
+
+We showed that $\ket{\dots, n_{\bm{p}}}, \dots)$ are momentum eigenstates, $\hat{p}^{\mu} \ket{\dots n_{\bm{p}} \dots} = (\dots n_{\bm{p}}p^\mu \dots) \ket{\dots n_{\bm{p}} \dots}$, so we should see that 
+\begin{equation}
+    \expval{\hat{p}^{\mu}}\bigg\vert_{\ket{\psi} = \ket{\bm{p}}} = p^\mu \quad \quad  \expval{\hat{O}}\bigg\vert_{\ket{\psi}} = \frac{\mel{\psi}{\hat{\mathcal{O}}}{\psi}}{\expval{\psi|\psi}}
+\end{equation}
+and 
+\begin{align}
+    \expval{\hat{p}^{\mu}}\Bigg|_{\ket{\psi} = \ket{\bm{p}}} & = \frac{\mel{\bm{p}}{\hat{p}^\mu}{\bm{p}}}{\expval{\bm{p}|\bm{p}}}   = \frac{\bra{\bm{p}} \int \frac{d^n q}{(2\pi)^n 2q^0} q^\mu \hat{a}_{\bm{q}}^\dagger \hat{a}_{\bm{q}} \ket{\bm{p}} }{\expval{\bm{p}|\bm{p}}} = \frac{\int \frac{d^n q}{(2\pi)^n 2q^0}  q^\mu   \bra{0}  \hat{a}_{\bm{q}}^\dagger \hat{a}_{\bm{q}} \ket{0} }{\expval{\bm{p}|\bm{p}}}
+\end{align}
+Exploit $\comm{\hat{a}_{\bm{p}}}{\hat{a}_{\bm{p}}^{\dagger}} = (2\pi)^n 2E_{\bm{p}} \delta^{n}(\bm{p} - \bm{q})$ therefore 
+\begin{equation}
+    \hat{a}_{\bm{q}} \hat{a}_{\bm{p}}^{\dagger} = \hat{a}_{\bm{p}}^{\dagger} \hat{a}_{\bm{q}} + (2\pi)^n 2E_{\bm{p}} \delta^{n}(\bm{p} - \bm{q})
+\end{equation}
+we can prove the first result states
+\begin{align}
+    \expval{\hat{p}^{\mu}}\Bigg|_{\ket{\psi} = \ket{\bm{p}}} & = \frac{\int \frac{d^n q}{(2\pi)^n 2q^0}  q^\mu   \bra{0} \hat{a}_{\bm{q}} \hat{a}_{\bm{q}}^\dagger  \left[  \cancel{\hat{a}_{\bm{p}}^{\dagger} \hat{a}_{\bm{q}}} + \cancel{(2\pi)^n 2E_{\bm{p}}} \delta^{n}(\bm{p} - \bm{q})  \right] \ket{0} }{\expval{\bm{p}|\bm{p}}} \nonumber\\
+    & = p^\mu \frac{\mel{0}{  \hat{a}_{\bm{p}} \hat{a}_{\bm{p}}^\dagger  }{0}}{\expval{\bm{p}|\bm{p}}}\nonumber\\
+    & = p^\mu \frac{\expval{\bm{p}|\bm{p}}}{\expval{\bm{p}|\bm{p}}} \nonumber\\
+    & = p^\mu 
+\end{align}
+as expected. Careful! $\expval{\bm{p}|\bm{k}} = \mel{0}{\hat{a}_{\bm{p}} \hat{a}_{k}^{\dagger} }{0}$ 
+which is then 
+\begin{align}
+    \expval{\bm{p}|\bm{k}} & = \mel{0}{\hat{a}_{\bm{p}} \hat{a}_{\bm{k}}^{\dagger} }{0} \nonumber\\
+      &=  \mel{0}{ \cancel{\hat{a}_{\bm{k}}^{\dagger}\hat{a}_{\bm{p}}} +(2\pi)^n 2E_{\bm{p}}\delta^{(n)} (\bm{p} - \bm{k})  }{0} \nonumber\\
+    & = (2\pi)^n 2E_{\bm{p}}\delta^{(n)} (\bm{p} - \bm{k}) \underbrace{\expval{0|0}}_\text{$1$}
+ \end{align}
+therefore we have 
+\begin{equation}
+    \expval{\bm{p}|\bm{p}}=(2\pi)^n 2E_{\bm{p}}\delta^n \underbrace{(\bm{p} - \bm{k})}_\text{$ = 0$}
+\end{equation}
+Notice that we have formally divided infinity by infinity to yields unity. Care need to be taken in QFT, there are infinities lurking\footnote{Infinities leads to black hole and destruction of universes which leads to loss of life. They are very bad and we need to careful when diving by infinity such that we do not destroy the universe }. Lets make the above more rigorous. Let recognise that $\ket{\bm{p}}$ is an nonphysical state. In QFT, infinities are taken care of by smearing. We should really consider a physical state that's a normalizable wave packet of some width in momentum. Our states will be some 
+\begin{equation}
+    \ket{\psi} = \int \frac{d^n p}{(2\pi)^{n} 2p^0} f(\bm{p})\ket{\bm{p}}
+\end{equation}
+where $f(\bm{p})$ is a smooth function whose normalization is given by
+\begin{align}
+    \expval{\psi|\psi}  = 1 & = \frac{d^n p}{(2\pi)^{n} 2p^0} f^*(\bm{p})\bra{\bm{p}} \frac{d^n q}{(2\pi)^{n} 2q^0} f(\bm{q})\ket{\bm{q}} \nonumber\\
+    & = \int \frac{d^n p}{(2\pi)^{n} 2p^0} \cancel{ \frac{d^n q}{(2\pi)^{n} 2q^0}} f^*(\bm{p})f(\bm{p}) = \cancel{(2\pi)^n} 2E_p \cancel{\delta^n (\bm{p} - \bm{q})} \nonumber\\
+    & = \int \frac{d^n p}{(2\pi)^{n} 2p^0} |f(\bm{p})|^2 \nonumber\\
+    & = 1
+\end{align}
+We can interpret this as a probability distribution, it is \textbf{non-negative} and \textbf{normalised} as expected. Wave-packets have nice properties like 
+\begin{equation}
+    [\ket{\psi}] : \expval{\psi|\psi} = 1 \implies [\ket{\psi}]  =1
+\end{equation}
+Expectation values as simpler because denominator is $\expval{\psi|\psi} = 1$. For example $$\expval{\hat{p}^\mu}|_{\ket{\psi}} = \frac{\mel{\psi}{\hat{p}^\mu}{\psi}}{\expval{\psi|\psi}} = \int \frac{d^n p}{(2\pi)^{n} 2p^0} |f(\bm{p})|^2 p^\mu$$
+Interpretation? we just showed that $\frac{1}{2p^0}|f(\bm{p})|^2$ is a probability distribution. In general $$\int dx P(x) x = \expval{x}$$ gives $$\expval{\hat{p}^\mu} = \expval{p^\mu}$$
+the expectation of the momentum in the field is the expectation of the momentum mode in the wave-packet. We may make a Peskin\cite{peskin2018introduction} like argument that of the $f(\bm{p})$ is highly peaked about $\bm{p}_0$ then 
+\begin{equation}
+    \int \frac{d^n p}{(2\pi)^{n} 2p^0} |f(\bm{p})|^2 p^\mu \to p_{0}^{\mu}
+\end{equation}
+therefore $\expval{\bm{\hat{p}}^\mu} \simeq p_{0}^{\mu}$
+
+\subsection{Special relativity: Causality}
+
+Does field theory respect causality? Lets examine the probability for particle to propagate from spacetime position $y^\mu \to x^\mu$. 
+\begin{equation}
+    p(y \to x) \sim |\mathcal{A}(y \to x)|^2
+\end{equation}
+where $\mathcal{A}$ is the amplitude: 
+\begin{align}
+    \mathcal{A} (y \sim x) & = \underbrace{\expval{x|y}}_\text{Particle at spacetime $y^\mu$} \nonumber\\
+    & = \mel{0}{\hat{\phi}^{\dagger}(x) \hat{\phi}(y) }{0} \nonumber\\
+    & = \text{Creates particle at } y^\mu \nonumber\\
+    &= \mel{0}{\hat{\phi}(x)\hat{\phi}(y)}{0}, \quad \text{Real scalar field } \hat{\phi}^\dagger = \hat{\phi} \nonumber\\
+    & \equiv D(x - y)
+\end{align}
+where $D(x -y)$ is the propagator, the amplitude that gives the probability for a particle to propagate from $y^\mu$ to $x^\mu$. We now to examine $D(x -y)$ explicitly, let us write 
+\begin{equation}
+     \hat{\phi}(x)=  \int \frac{d^n p}{(2\pi)^n 2p^0} \left[\hat{a}_{\bm{p}} e^{-ip\cdot x} +  \hat{a}_{\bm{p}}^{\dagger} e^{ip\cdot x} \right]_{p^0 =  E_{\bm{p}} = \sqrt{\bm{p}^2  + m^2 }   }
+\end{equation}
+therefore
+\begin{align}
+  \mathcal{A} (y \to x) & = \bra{0}  \nonumber\\
+  & =  \int \frac{d^n p}{(2\pi)^n 2p^0} \left[\hat{a}_{\bm{p}} e^{-ip\cdot x} +  \cancel{\hat{a}_{\bm{p}}^{\dagger}} e^{ip\cdot x} \right]_{p^0 =  E_{\bm{p}} = \sqrt{\bm{p}^2  + m^2 }   } \nonumber\\
+  & \int \frac{d^n q}{(2\pi)^n 2q^0} \left[ \cancel{\hat{a}_{\bm{q}}} e^{-iq\cdot y} +  \hat{a}_{\bm{q}}^{\dagger} e^{iq\cdot y} \right]_{q^0 =  E_{\bm{q}} = \sqrt{\bm{q}^2  + m^2 }   } \nonumber\\
+  & = \int \frac{d^n p}{(2\pi)^n  2E_{\bm{p}} } e^{-ip \cdot (x - y)} \nonumber\\
+  & \equiv D(x - y)
+\end{align}
+The propagator will be different for space-like and time-like separation. Consider a time-like separation, $(x - y)^2 > 0$, for time-like separation there always exists a frame in which $\bm{x} - \bm{y} = \bm{0}$ and $x^0 - y^0 \equiv t$, then we have
+\begin{align}
+    \mathcal{A}(y \to x) & = \int \frac{d^n p}{(2\pi) 2p^0} e^{-ip^0 t}, \quad p^0 = E_{\bm{p}} = \sqrt{\bm{p}^2 +m^2} \nonumber\\
+    & = \frac{1}{2(2\pi)^n} \int d\Omega_{n-1} \int_{-\infty}^{\infty} \frac{p^{n-1}dp}{\sqrt{p^2 +m^2}} e^{-i\sqrt{p^2 +m^2}t}, \quad p = |\bm{p}|
+\end{align}
+where for $\Omega_{n-1}$, we have 
+$$\Omega_{n} = \frac{2\pi^{\frac{n+1}{2}}}{\Gamma(\frac{n+1}{2})}$$
+Lets continue to simplify the argument of the exponential and change variables from $p$ to $E = \sqrt{p^2 + m^2} \implies dE = \frac{pdp}{\sqrt{p^2 +m^2}} = \frac{pdp}{E}$
+therefore 
+\begin{align}
+    \mathcal{A}(y \to x) = \frac{\Omega_{n -1}}{2(2\pi)^n} \int_{m}^{\infty} dE \left( E^2 - m^2   \right)^{\frac{n-2}{2}} e^{-iEt}
+\end{align}
+We want to make the integral dimensionless where we define $\xi \equiv E/m \to dE = md\xi$  
+\begin{align}
+    \mathcal{A} (y \to x) = \frac{\Omega_{n-1}}{2(2\pi)^n} m^{n-1} \int_{1}^{\infty} d\xi \left( \xi^2 - 1 \right)^{\frac{n-2}{2}} e^{-i \xi \psi} , \text{where } \psi \equiv mt
+\end{align}
+Look up the integral in Gradshteyn and Ryzhik\cite{gradshteyn2014table}
+\begin{equation}
+    I = \frac{2^{\frac{n-1}{2}} \Gamma(\frac{n}{2})}{\sqrt{\pi}} \left(  \frac{m}{it} \right)^{\frac{n-1}{2}} K_{\frac{n-1}{2}} (i m t )
+\end{equation}
+where $K$ is the modified Bessel function of the first kind. 
+\begin{equation}\label{eq3}
+    D(x - y) = \frac{1}{2\pi} \left( \frac{m}{2 \pi it} \right)^{\frac{n-1}{2}} K_{\frac{n-1}{2}} (i m t )
+\end{equation}
+We have derived $D(x - y)$ in \eqref{eq3} for the special frame where $(x - y)^2 > 0$ and $x^0 - y^0 = t, \bm{x} - \bm{y} = 0$. But we must be able to boost from this special frame to a general frame where $(x - y)^2 > 0$ but $\bm{x} - \bm{y} \neq 0, x^0-  y^0 \neq t$. We must have that
+\begin{equation}\label{con_t_4}
+     D( (x - y)^2) = \frac{1}{2\pi} \left( \frac{m}{2 \pi i \sqrt{(x - y)^2} } \right)^{\frac{n-1}{2}} K_{\frac{n-1}{2}} (i m \sqrt{(x - y)^2} )
+\end{equation}
+Going one step further, we should be able to analytically continue \eqref{con_t_4} from $(x - u)^2 > 0$ to $(x - y)^2 <0$.
+\begin{equation}\label{con_t_5}
+     D( (x - y)^2) = \frac{1}{2\pi} \left( \frac{m}{2 \pi i \sqrt{-(x - y)^2} } \right)^{\frac{n-1}{2}} K_{\frac{n-1}{2}} (i m \sqrt{-(x - y)^2} )
+\end{equation}
+true for all $(x - y)^2$. Dimensionally we have $$|D|^2 \sim p; \int d^n x |D|^2 = 1 \implies [D] = E^{n/2}$$
+We make the following observations:
+\begin{enumerate}
+    \item If $(x - y)^2 < 0$, then $D^*(x - y) = D(x - y)$
+    \item If $(x - y)^2 > 0$, then $D^*(x - y) \neq D(x - y)$
+    \item Asymptotic approximations
+    \item For small $z$, we have $$K_v (z) = \frac{\Gamma (v) }{2} \left(  \frac{2}{z} \right)^2 + \mathcal{O} (z^{-v+1}) $$
+\end{enumerate}
+We can then find the massless limit of \eqref{con_t_5}
+\begin{equation}\label{con_t_4}
+     D( x - y) = \frac{\Gamma \left( \frac{n-1}{2}  \right) }{4\pi^{\frac{n+1}{2}}} \left( \frac{1}{ \sqrt{-(x - y)^2} } \right)^{n-1} 
+\end{equation}
+For large $z$, $K_x(x) = \sqrt{\frac{\pi}{2z}} e^{-z} + \mathcal{O} (z^{-3/2}) $
+\begin{equation}\label{con_t_4}
+     D( x - y) = \frac{1 }{2m} \left( \frac{m}{ 2\pi\sqrt{-(x - y)^2} } \right)^{n/2} e^{m\sqrt{-(x - y)^2}} + \text{Higher order terms} 
+\end{equation}
+For time-like separations, we have 
+\begin{equation}
+    D(x - y) \sim \frac{1}{m} \left(   \frac{m}{-it}\right)^{n/2} e^{imt} \implies p(y \to x) \sim \frac{1}{m^2} \left(  \frac{m}{t}  \right)^{n/2} : \text{ Diffusive process}
+\end{equation}
+For space-like separations we have 
+\begin{equation}
+    D(x ) \sim  \left(   \frac{m}{r}\right)^{n/2} e^{-mr} , \quad -(x - y)^2 \equiv r \implies p(y \to x) \sim  \left(  \frac{m}{r}  \right)^{n}e^{-2mr} 
+\end{equation}
+There is a non-zero probability for a particle to propagate across space-like separations. This is another EPR paradox, which is resolved by noting that particle propagation $\neq $ information propagation. Rather what one must consider is the commutator:
+\begin{align}
+    & \mel{0}{\comm{\phi(x)}{\phi(y)}}{0} = \begin{cases}
+               ?  (x - y)^2 > 0 \\
+               ? (x - y)^2 < 0
+    \end{cases} \nonumber\\
+    & = \mel{0}{\phi(x) \phi(y) -  \phi(y) \phi(x)}{0} \nonumber\\
+    & = \mel{0}{\phi(x) \phi(y) }{0} - \mel{0}{\phi(y) \phi(x) }{0} \nonumber\\
+    & = \mel{0}{\phi(x) \phi(y) }{0} - (\mel{0}{\phi(x) \phi(y) }{0})^* \nonumber\\
+    & = D(x - y) - D^*(x - y) \nonumber\\
+    & = 0 
+\end{align}
+Identically for $(x - y)^2 < 0$, when $D*(x - y) = D(x - y)$. However for $(x - y)^2 > 0$, it is not zero.
+
+
+
+\subsection{Connecting to experiments}
+
+We so far considered a anon-interacting theory, super boring. When two particles approach each other, nothing happens. We have no way of knowing that the particles are even there. 
+
+So we want to consider interacting theories. The non-trivial but surmountable difficulty will be overcoming the necessary, irreducible quantum fuzziness that comes with interaction. The quantum cloud depends on the scale at which its probed, which is synonym with renormalization, and renormalisation is synonym with QM. We want to perform perturbation theory. Is there a way to appproximate order by order the full theory in terms of the non-interaction theory? The fully interacting quantum clouds can be precisely modelled by our non-interaction theory when those clouds are infintely spearated. Thus we will be restricted to scattering experiments in which particles are initially infinitely separated. 
+ We are interested in computing objects likes
+ \begin{equation}
+     \expval{p_1 \dots p_n; \text{out}|  k, \dots , k_m; in}
+ \end{equation}
+where $m$ does not necessarily have to equal $n$, where the in and out states are from the asymptotic past and symptotic future, where all particles are well separated; we are preparing our in state and observing the out state. Our goal is to precisely connect $\expval{\hat{p}^\mu}$ to
+a scattering cross section. we define an experimental cross section. Then we will relate $\expval{\hat{p}^\mu}$ to a fourier transformed $n+m$ point green function in the fully interacting theory by LSZ reduction. Then relate greens function of a fully interacting theory to a Dyson series espansion of Greens function in the non-interacting theory via  the Gell-Mann-Law theorem
+
+
+\begin{equation}
+    \mathcal{A} (y \to x) = \expval{x|y} = \mel{0}{\phi^{\dagger}  (y)  \phi(x) }{0}
+\end{equation}
+$[S]  =1 \implies [\mathcal{L}] = E^{n+1} \implies [\partial_\mu \phi]^2 = E^{n+1} \implies [\phi] = E^{n-1/2}$, therefore $[\Omega] = E^{n-1} \implies [p] \sim E^{2n-2}$
+
+

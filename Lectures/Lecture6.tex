@@ -1,0 +1,77 @@
+\section{Lecture 6: Connecting to experiments }
+Recall that In/Out and In/In formalism. In the In/Out formalism, we have some state
+\begin{align}
+    \expval{p_1, \dots, p_m; out| k_1, \dots, \dots k_{l}; in}
+\end{align}
+In the In/In formalism, we have 
+\begin{equation}
+    \expval{ k_1, \dots, k_l |\hat{\theta}(x)|k_1, \dots, k_l; in}
+\end{equation}
+The In/Out formalism, generally speaking the quantity measured in a scattering experiment is the number of particles of type $i$, called $N_i$, often performed differentiably, eg. $\frac{dN_i}{d\Omega}$. Now the number of measured particles in some scattering experiment will depend in a trivial way on the number of incoming particles and the extent to which the beams of particles overlap (called the luminosity), i.e if we collide particles of type $A$ and $B$, then $N_i \approx \alpha n_A n_B$ overlap where $n_{AB}$ is the transverse number density of particles of type A/B in their respective teams. The proportionality constant is the fundamental object and is called the cross section.
+$$N_i = \sigma (AB \to i) n_A n_B A_{\text{overlap}}$$ Dimensional analysis: $[N_i] = 1; [n_A] = \frac{1}{L^{n-1}} = [n_B]$ and $[A] = L^{n-1}$ then $[\sigma] = L^{n-1}$. Dimensions of a transverse area; the cross section is like effective transverse size.  Picture of scattering experiment:
+
+All interesting physics resides in the corss section $\sigma (AB \to i)$ , which is therefore what we wish to compute. If our A/B particles scatter into particles $1,2, \dots$ then
+
+\begin{equation}
+    N = \int d^{n-1} \bm{b} n_A (\bm{b}) n_B (\bm{b}) \sigma (\bm{b})
+\end{equation}
+Reminder of notation:
+\begin{equation}
+    \underbrace{p^\mu}_\text{$d = 1+n$ dim} = (p^0 , \underbrace{\bm{p}}_\text{$n-dim$})^\mu = (p^0, \underbrace{\bm{p}}_\text{$n-1$-dim} , p^z)^\mu
+\end{equation}
+we would like to see how $\sigma(\bm{b})$ is related to the in/out overlap which we will called the S matrix. Here $b$ is the impact parameter. 
+$$\expval{p_1, \dots, p_n |k_1, \dots, k_l} \equiv S(k1, \dots, k_l ; p_1, \dots p_n)$$
+Note that the isolated single particles momentum states span the asymptotic past/future Hilbert space, so the S matrix represent a unitary change of basis for incoming particles to outgoing particles. 
+Unitarity is a crucial concept in QM/QFT because unitarity is equivalent to probability conservation. 
+One important consequence in scattering is known as the Optical theorem. 
+
+Most elastic scattering events are themselves boring. The particles simply pass by each other without interacting. In an event of this type, nothing happens and energy-momentum conservation trivially implies that
+$$S \propto \delta^{n+1} (k_1 - p_1)  \dots \delta^{n+1} (k_l - p_l)+ \text{permuations of identical particles}$$ Lets isolate the interesting physics in the $T-$Matrix:
+$$T \equiv -i [S - \delta(k_1 - p_1) \dots + \text{permutations}];$$ i.e. subtract a trivial $1$ from the $S$ matrix. Finally, there is overall energy momentum conservation(when the problem has spaetime translation symmetries). Define the invariant matrix element by $$iT \equiv i\mathcal{m} (k_1, \dots, k_l \to p \dots p_m) (2\pi)^{n+1} \delta^{n+1}(\sum k_i - \sum_f p_f) $$
+We would like to connect this invariant cross section $\mathcal{m}$ to the cross section. In the future, we would like to figure out how to compute this $\mathcal{m}$.
+In a scattering experiment we only have control of the incoming particles up to some quantum funny business (we have incoming wave packets)
+$$\ket{\phi_A}_{in} = \int \frac{d^n k_A}{(2\pi)^n 2E_A} \tilde{\phi}_{A} (\bm{k}_A) \ket{\bm{K}_A}_{in}$$ where we denote that
+\begin{equation}
+    \expval{\phi_A | \phi_A}_{in} = 1 \implies \int \frac{d^n k_A}{(2\pi)^n 2E_A} |\tilde{\phi}_{A} (\bm{k}_A) |^2 = 1
+\end{equation}
+we are thinking of $1/2E_A |\tilde{\phi}_A (\bm{k}_A)|^2$ as a probability density (i.e. $|\phi (\bm{k}_{A})|^2 = \frac{1}{2E_A} |\tilde{\phi}_A (\bm{k}_{A})|^2$) that is highly peaked about some momentum $\bm{p}_A$
+
+We have taken into account that colliders don't create perfect incoming momentum eigenstates (a good thing as then the x-scattering would be infinite by Heisenberg uncertainty). We should also take into account the localisation of particles in space. In order to simultaneously consider the quantum localisation of particles in phase space, we should consider the Wigner distribution. 
+
+Wigner distributions allow for a third independent formulation of non-relativistic quantum Mechanics (In addition to the usual Schrodinger/Heisenberg formulation and the Feynman path integral formulation)
+
+The advantage of the Wigner distribution formulation is that it lives in phase space and gives a natural connection back to classical Louiville theory. For our purposes, we need the following facts, for a general density matrix $\hat{\rho} \equiv \sum_i p_i \ket{\psi_i(t)  } \bra{\psi_i (t)}$, $\sum_i p_i = 1$, the Wigner quasiprobability distribution is defined by the Wigner transform of the density matrix:
+\begin{equation}
+    W(\bm{x}, \bm{p}, t) \equiv \frac{1}{(2\pi)^n}   \int d^n y \: e^{i\bm{p} \cdot \bm{y}}  \mel{x  - \frac{\bm{y}}{2}}{\hat{\rho}(t)}{x  + \frac{\bm{y}}{2}}
+\end{equation}
+$\mel{x  - \frac{\bm{y}}{2}}{\hat{\rho}(t)}{x  + \frac{\bm{y}}{2}}$ is sometimes called the off diagonal of mixed Fourier transform. Then we have
+\begin{equation}
+    \int d^n x \: W(\bm{x}, \bm{p}, t) = \mel{\bm{p}}{\hat{\rho} (t)}{\bm{p}} \xrightarrow[]{\text{pure state}} |\phi (\bm{p})|^2
+\end{equation}
+where $|\phi (\bm{p})|^2$ is the momentum space probability density.
+\begin{equation}
+    \int d^n p \: W(\bm{x}, \bm{p}, t) = \mel{\bm{x}}{\hat{\rho} (t)}{\bm{x}} \xrightarrow[]{\text{pure state}} |\phi (\bm{x})|^2
+\end{equation}
+where $|\phi (\bm{x})|^2$ is the position space probability density, with
+\begin{equation}
+    \int d^n x d^n p \: W(\bm{x}, \bm{p}, t) = 1
+\end{equation}
+Both the spatial and momentum space probability densities live in the Wigner distribution. Wigner distribution (WD) allows helps us localize the incoming particle in both position and momentum space. The Wigner distribution is known as a quasi-probability distribution because its not positive definite (despite unit norm); the distribution can be negative in regions of phase space where Heisenberg uncertainty is violated. 
+
+The Fourier transform of the WD can be used to represent the off-diagonal product of wave functions
+\begin{equation}
+    \int d^n x \: e^{i \bm{x}  \cdot \bm{q}  } W(\bm{x}, \bm{p}) = \varphi \left(    \bm{p} + \frac{\bm{q}}{2}   \right)\varphi^* \left(    \bm{p} - \frac{\bm{q}}{2}   \right)
+\end{equation}
+Note that 
+\begin{align}
+    W(\bm{x},\bm{p} , t) & \equiv \frac{1}{(2\pi)^n} \int d^n y \: e^{i \bm{p} \cdot \bm{y} }   \mel{ \bm{x}  - \frac{\bm{y}}{2}}{\hat{\rho}(t)}{ \bm{x}  + \frac{\bm{y}}{2}} \sim \psi^* \left(  \bm{x}  - \frac{\bm{y}}{2}  \right) \psi \left(  \bm{x}  + \frac{\bm{y}}{2}  \right) \nonumber\\
+    & \longrightarrow \frac{1}{(2\pi)^n} \int d^n q \: e^{i \bm{x} \cdot \bm{q} }   \mel{ \bm{p}  - \frac{\bm{q}}{2}}{\hat{\rho}(t)}{\bm{p}  + \frac{\bm{q}}{2}} \sim \phi^* \left(  \bm{p}  - \frac{\bm{q}}{2}  \right) \phi \left( \bm{p}   + \frac{\bm{q}}{2}  \right) \nonumber
+\end{align}
+We can now define $\bm{k}_A = \bm{p}_A + \bm{\Delta}_{A}/2$ and $\bar{\bm{k}}_A = \bm{p}_A - \bm{\Delta}_A/2$ where $\bm{p}_A = (\bm{k}_A + \bar{\bm{k}}_B)/2$ and $\bm{\Delta}_A = \bm{k}_A - \bar{\bm{k}}_A$. Here $\bm{p}_A$ is the peak value of the momentum distribution of incoming particle $A$ and $\bm{\Delta}_A$ is the width of the this momentum distribution. Then we have
+\begin{equation}
+    \phi (\bm{k}_A) \phi^* (\bar{\bm{k}}_A) = \int d^n \bm{b}_A \: e^{i \bm{b}_A \cdot \bm{\Delta}_A} W_A (\bm{b}_A , \bm{p}_A)
+\end{equation}
+
+
+
+

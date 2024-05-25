@@ -1,0 +1,163 @@
+\section{Lecture 4:Interacting field theories}
+What can we say about interacting field theories in general? and how it will lead to the \textbf{Lehmann-Kallen representation of the propagator
+}
+\begin{enumerate}
+    \item Explicitly state the assumptions we are making for our interacting theory
+    
+    \item What is the spectrum of our fully interacting theory? The single particle state of the free theory survives in the fully interacting theory (with only minor modifications
+    \item (Further goals) Familiarity with formal manipulations with interacting theory objects
+    \item Some work/understanding further of renormalisation
+    \item Density of states in QFTs
+\end{enumerate}
+
+Assumptions: 
+\begin{enumerate}
+    \item Our Lagrangian $\mathcal{L}$ is spacetime translation invariant:
+    $$\implies \hat{p}^\mu = (H, \bm{p})^\mu$$ is conserved 
+    \item $\exists \ket{\Omega}$, a stable ground state with $\hat{p}^\mu\ket{\Omega} = 0$, the ground state is spatially translation invariant, which means there is no momentum in any direction. We are normalising the energy such that the energy of the ground state is zero. $\ket{\Omega}$ is the interacting theory analog of $\ket{0}$, the vacuum state of the free theory. For the free theory, the zero state means there is no quanta and is the state with the lowest energy. For the fully interacting theory, we cannot guarantee that there are no quanta. We know from Heisenberg uncertainty relations that there are quanta popping in/out of existence all the time. What does remain is that this is the state with the lowest energy. 
+    \item $\exists \ket{\bm{p}}$ such that $\bm{p}^2 = m^2 \ket{\bm{p}}$ with $m^2 \geq 0, \:  m^2 \geq 0$, i.e. $\ket{\bm{p}}$ is the interacting theory analog of the free theory single particle state. For simplicity, we take $m>0$, i.e. Imposing mass gap in our theory. Imposing a \textbf{mass gap} in an interacting theory means introducing a fundamental property that prevents certain particles or excitations from having zero mass. A mass gap refers to the minimum energy required to create a particle or excitation, and it is associated with the fact that certain particles cannot exist with arbitrarily low energy.
+\begin{definition}A mass-gap means that aside from the vacuum (totally empty space), the next higher energy state has an energy which is bigger than zero by a finite amount, not by an arbitrarily small amount. This usually means no massless particles, since massless particles can have arbitrarily low energy.
+\end{definition}
+Another way of saying mass-gap which is somewhat more mathematical is that all correlation functions (the statistical versions of quantum fields) are exponentially decaying, so that the field values in imaginary time are independent when you go out far enough away. This is to contrast with a theory with no mass gap, where the correlations go to zero slowly, as a power of the distance between the points.
+    \item  All other states have $\bm{p}^2 \ket{\bm{q}} = \mu^2 \ket{\bm{q}}$, with $\mu^2 \geq 4m^2$. Each state $\ket{\bm{q}}$ is a continuum with $E_p = \sqrt{\bm{q}^2 + \mu^2}$. (Allowing for bound states with $\mu^2 < 4m^2$, strictly less than because of the binding energy. We also have continuum of multi-particle states). 
+\end{enumerate}
+
+Lets be more quantitative, consider
+\begin{equation}
+    \mel{\Omega}{T\{ \phi(x) \phi(y) \}}{\Omega}
+\end{equation}
+where $T$ is the time ordering operator with a two point function. In the non-interacting theory, the Feynman propagator is defined by $\mel{0}{\phi(x) \phi(y)}{0} \equiv D_{F}(x - y)$ where we dealing with free theory $\phi$ and vacua. To proceed, lets insert $\mathds{1}$ via a decomposition in  terms of momentum eigenstates of the fully interacting theory: 
+
+Lets find a convenient way of expressing the multi-particle continuum. Since by assumption $m>0$, each state $\ket{\bm{q}}$ is related to a state with $\bm{q} = \bm{0}$ by a Lorentz boost, there is a well defined rest frame for this state . Similarly, all states $\ket{q}$ can be produced by a Lorentz boost on some state $\ket{\lambda_0}$ such that $\hat{\bm{p}}\ket{\lambda_0} = 0$.  Here we can think of $\ket{\lambda_0}$ state as that of two particles infinitely far from each other at rest,  or two particles which are zooming away from each other but has no spatial momentum. 
+
+Define $\ket{\lambda_{\bm{p}}}$ to be the Lorentz boost of the state $\ket{\lambda_0}$. Then, formally :
+\begin{align}
+    \mathds{1} = \ket{\Omega}\bra{\Omega} + \underbrace{\sum_{\lambda_0} \int \frac{d^n p}{(2\pi )^n 2p^0 } }_\text{$ \equiv \sumint$} \ket{\lambda_{\bm{p}}}\bra{\lambda_{\bm{p}}}
+\end{align}
+where the sum is over all single particle states, all bound states, all unbound states of $2, 3, \dots$ particles. Bound states $+$ unbound states. Lets examine the two point function:
+\begin{equation}
+     \mel{\Omega}{T\{ \phi(x) \phi(y) \}}{\Omega}_{x^0 > y^0} =  \mel{\Omega}{\{ \phi(x)\mathds{1} \phi(y) \}}{\Omega}
+\end{equation}
+In the interacting theory, we do not know that the single particle states looks like but we do have the decomposition procedure which will help us here. Then 
+\begin{align}
+     \mel{\Omega}{ \phi(x) \{ \ket{\Omega}\bra{\Omega} + \sum_{\lambda_0} \int \frac{d^n p}{(2\pi )^n 2p^0 } \ket{\lambda_{\bm{p}}}\bra{\lambda_{\bm{p}}} \} \phi(x) }{\Omega}
+\end{align}
+Consider the first term
+\begin{equation}
+    \mel{\Omega}{\phi(x)}{\Omega} \mel{\Omega}{\phi(y)}{\Omega}
+\end{equation}
+We can simply these by exploiting the formal properties that these fields satisfy. In general $\hat{p}^\mu$ is the generator of the spacetime translation. Thus formally we have that 
+\begin{align}
+    e^{i \cdot \hat{p} (x - y)} \phi(y)  e^{-i \cdot \hat{p} (x - y)} = \phi(y+(x-y)) = \phi(x) \\
+    \implies \phi(x) = e^{\hat{p}\cdot x} \phi(0)  e^{-i\hat{p}\cdot x} 
+\end{align}
+Recall our assumption that $\hat{p}^\mu\ket{\Omega} = 0$ (which says that $\ket{\Omega}$ is spacetime translation invariant has zero momentum)
+\begin{align}
+    e^{\hat{p}\cdot x} \ket{\Omega} =  e^{-i(0)\cdot x} \ket{\omega} = \ket{\Omega} 
+\end{align}
+Therefore 
+\begin{align}
+    \mel{\Omega}{\phi(x)}{\Omega} = \mel{\Omega}{e^{i\hat{p}\cdot x} \phi(0) e^{-i\hat{p}\cdot x} }{\Omega} = \mel{\Omega}{\phi(0)}{\Omega}
+\end{align}
+Therefore due to spacetime translations, $\phi(x) \to \phi(0)$ above only depends on the value of the field evaluated at the origin. Lets examine the second term, 
+\begin{equation}
+    \mel{\Omega}{\phi(x)  \sumint  \ket{\lambda_{\bm{p}}} \bra{\lambda_{\bm{p}}}  \mathcal{O}(y) }{\Omega}
+\end{equation}
+Consider first
+\begin{align}
+    \mel{\Omega}{\phi(x)}{\lambda{p}} & = \mel{\Omega}{e^{i\hat{p}\cdot x} \phi(0) e^{-i\hat{p}\cdot x} }{\lambda_{\bm{p}}} = \mel{\Omega}{\phi(0)}{\lambda_{\bm{p}}} e^{-ipx}|_{p^0 = E_{\bm{p}} = \sqrt{\bm{p}^2 +\mu^2} }
+\end{align}
+where the exponential is some complex number and $\mu^2$ is the invariant mass of the $\lambda_0$ state. We can make further progress as
+\begin{equation}
+    \ket{\lambda_p} = U(\Lambda_{p}) \ket{\lambda_0}
+\end{equation}
+this $\ket{\lambda_p}$ is a state in Fock space and $U(\Lambda_{p})$ is a unitary operator that effects the boost on the Fock space from $0$ to $\bm{p}$. The vacuum is boost invariant $U(\Lambda_p) \ket{\Omega} = \ket{\Omega} \leftrightarrow U^{-1} (\Lambda_{p}) \ket{\Omega}= \ket{\Omega}$. Lets again insert formally $\mathds{1}$ where $\mathds{1} = U(\Lambda_p)U^{-1} (\Lambda_{p})$. The the matrix element 
+\begin{equation}
+    \mel{\Omega}{\phi(0)}{\lambda_p} = \mel{\Omega}{ \underbrace{U(\Lambda_{\bm{p}})U^{-1} (\Lambda_{\bm{p}})}_\text{$\mathds{1}$} \phi(0) U(\Lambda_{\bm{p}})}{\lambda_0}
+\end{equation}
+But in general , we have similarity transform $U^{-1}(\Lambda_{\bm{p}}) \phi(x) U(\Lambda_{\bm{p}}) = \phi (\Lambda_x)$, then 
+\begin{align}
+    U^{-1} (\Lambda_{\bm{p}}) \phi(0) U(\Lambda_{\bm{p}}) & = \phi (\Lambda (o)) = \phi(0) \nonumber\\
+    \mel{\Omega}{\phi(x)}{\lambda_{\bm{p}}} & =  \mel{\Omega}{\phi(0)}{\lambda_{0}} e^{-ip\cdot x} \vert_{p^0 = E_{\bm{p}}} \nonumber\\
+    \mel{\lambda_{0}}{\phi(0)}{\Omega} & = (\mel{\Omega}{\phi(y)}{\lambda_{\bm{p}}})^{*} \nonumber\\
+    & = \mel{\lambda_{0}}{\phi(0)}{\Omega} e^{ip\cdot y} \vert_{p^0 = E_{\bm{p}}}
+\end{align}
+Hence we have
+\begin{align}
+    \mel{\Omega}{ \phi(x) \phi(y) }{\Omega} = | \mel{\Omega}{\phi(0)}{\Omega}|^2 + \sum_{\lambda_0}   |\mel{\Omega}{ \phi(0) }{\lambda_0}|^2 \underbrace{\int \frac{d^n p}{(2\pi)^n 2p^0} e^{-ip(x - y)}  \bigg\vert_{p^0 = E_{\bm{p}}}}_\text{$D(x - y; \mu^2)$, the propagator}
+\end{align}
+Returning to the original, we find
+\begin{align}
+    & \mel{\Omega}{  T\{ \phi(x) \phi(y) \} }{\Omega} \nonumber\\
+    & = |\mel{\Omega}{  \phi(0) }{\Omega}|^2 +  \sum_{\lambda_0}   |\mel{\Omega}{ \phi(0) }{\lambda_0}|^2 \left\{ \underbrace{    D(x - y; \mu^2) \theta (x^0 - y^0) +  D(y - x; \mu^2) \theta (y^0 - x^0) }_\text{$D_F(x 0 y; \mu^2)$}  \right\}
+\end{align}
+Lets now replace $\sum_{\lambda_0}$ with an integral over a density of states
+\begin{align}\label{eq_112121}
+    & \mel{\Omega}{  T\{ \phi(x) \phi(y) \} }{\Omega} = |\mel{\Omega}{  \phi(0) }{\Omega}|^2 + \int_{0}^{\infty} \frac{d\mu^2}{2\pi} \rho(\mu^2) D_F (x - y, \mu^2)
+\end{align}
+where
+\begin{equation}
+    \rho(\mu^2) \equiv \sum_{\lambda_0} 2\pi \delta (\mu^2 - m_{\lambda}^2) |\mel{\Omega}{  \phi(0) }{\lambda_0}|^2 
+\end{equation}
+The expression \eqref{eq_112121} is called the Lehman-Kallen representation of the propagator for a general (possibly interacting) theory where $\rho$ is known as the spectral density. Up to some constant, the vacuum expectation value (VEV) of the field, $\mel{\Omega}{\phi(0)}{\Omega}$ and the field strength renormalisation $\mel{\Omega}{\phi(0)}{\lambda_0}$, the propagator for the full theory is determined by the spectrum of zero spatial momentum energy eigenstates (and vice versa).
+
+\subsection{Spectral Density for Free Theory}
+
+What does a spectral density look like?
+\begin{equation}
+    (\mu^2 - m_{\lambda}^{2}) |\mel{\Omega}{\phi(0)}{\lambda_0}|^2
+\end{equation}
+Consider first for a free theory. For a single particle state in free theory, consider
+\begin{align}
+    \mel{0}{\phi(0)}{\bm{q}} & = \mel{0}{  \int \frac{d^n p}{(2\pi)^n 2p^0} \left(  a_{\bm{p}} e^{-ip(0)} +  a_{\bm{p}}^{\dagger} e^{ip(0)} \right) }{\bm{q}} \nonumber\\
+    & = \mel{0}{  \int \frac{d^n p}{(2\pi)^n 2p^0} \left(  a_{\bm{p}} e^{-ip(0)} +  \cancel{a_{\bm{p}}^{\dagger}} e^{ip(0)} \right) a_{\bm{q}}^{\dagger} }{0} \nonumber\\
+    & = \int \frac{d^n p}{(2\pi)^n 2p^0} \mel{0}{a_{\bm{p}} a_{\bm{q}}^{\dagger} }{0}  \nonumber\\
+    & = 1
+\end{align}
+since $ a_{\bm{q}} a_{\bm{p}}^{\dagger} = a_{\bm{q}}^{\dagger}a_{\bm{p}} + (2\pi)^n 2p^0 \delta^{(n)} (\bm{p} - \bm{q})$.
+For a two-particle state, the spectral density gives 
+\begin{align}
+    \mel{0}{\phi(0)}{\bm{q} \bm{k} } & = \mel{0}{  \int \frac{d^n p}{(2\pi)^n 2p^0} \left(  a_{\bm{p}} e^{-ip(0)} +  a_{\bm{p}}^{\dagger} e^{ip(0)} \right) }{\bm{q} \bm{k} } \nonumber\\
+    & = \mel{0}{  \int \frac{d^n p}{(2\pi)^n 2p^0} \left(  a_{\bm{p}} e^{-ip(0)} +  \cancel{a_{\bm{p}}^{\dagger}} e^{ip(0)} \right) a_{\bm{q}}^{\dagger}a_{\bm{k}}^{\dagger}  }{0} \nonumber\\
+    & = \int \frac{d^n p}{(2\pi)^n 2p^0} \mel{0}{a_{\bm{p}} a_{\bm{q}}^{\dagger} a_{\bm{k}}^{\dagger} }{0} \nonumber\\
+    & [\text{Invoking} \quad (a_{\bm{q}} a_{\bm{p}}^{\dagger} = a_{\bm{q}}^{\dagger}a_{\bm{p}} + (2\pi)^n 2p^0 \delta^{(n)} (\bm{p} - \bm{q}))] \nonumber\\
+    & = \int \frac{d^n p}{(2\pi)^n 2p^0} \underbrace{\mel{0}{ a_{\bm{k}}^{\dagger} }{0} }_\text{$ = 0$} (2\pi)^n \dots\nonumber\\
+    & = 0
+\end{align}
+Similar calculation for a three particle state yields
+\begin{align}
+    \mel{0}{\phi(0)}{\bm{q} \bm{k}  \bm{l} } & = \mel{0}{  \int \frac{d^n p}{(2\pi)^n 2p^0} \left(  a_{\bm{p}} e^{-ip(0)} +  a_{\bm{p}}^{\dagger} e^{ip(0)} \right) }{\bm{q} \bm{k}  \bm{l}} \nonumber\\
+    & = \mel{0}{  \int \frac{d^n p}{(2\pi)^n 2p^0} \left(  a_{\bm{p}} e^{-ip(0)} +  \cancel{a_{\bm{p}}^{\dagger}} e^{ip(0)} \right) a_{\bm{q}}^{\dagger}a_{\bm{k}}^{\dagger} a_{\bm{l}}^{\dagger}  }{0} \nonumber\\
+    & = \int \frac{d^n p}{(2\pi)^n 2p^0} \mel{0}{a_{\bm{p}} a_{\bm{q}}^{\dagger} a_{\bm{k}}^{\dagger} a_{\bm{l}}^{\dagger} }{0} \nonumber\\
+    & = \int \frac{d^n p}{(2\pi)^n 2p^0} (\dots )\nonumber\\
+    & = 0
+\end{align}
+Now using these results 
+\begin{align}
+    \int_{0}^{\infty}  \frac{dM^2}{2\pi}  \underbrace{\sum_{\lambda_0} (2\pi)  \delta (M^2 - m_{\lambda}^{2}) |\mel{\Omega}{\phi(0)}{\lambda_0}|^2}_\text{$\rho(M^2)$} D_F(x - y; M^2)
+\end{align}
+For a free theory $\ket{\Omega} = \ket{0}$, hence we have
+\begin{align}
+    & \implies \int_{0}^{\infty}  \frac{dM^2}{\cancel{2\pi}}\cancel{(2\pi)} \sum_{\lambda}   \delta (M^2 - m_{\lambda}^{2}) |\mel{0}{\phi(0)}{\lambda_0}|^2 D_F(x - y; M^2) \nonumber\\
+    & \implies \int_{0}^{\infty} dM^2    \delta (M^2 - m_{\lambda}^{2}) | \underbrace{ \mel{0}{\phi(0)}{\bm{q}} }_\text{$1$}  +  \underbrace{ \mel{0}{\phi(0)}{\bm{q} \bm{k} }}_\text{$ = 0$}  +  \underbrace{ \mel{0}{\phi(0)}{\bm{q} \bm{k}  \bm{l} } }_\text{$ = 00$}+ \dots  |^2 D_F(x - y; M^2) \nonumber\\
+    & \implies \int_{0}^{\infty} dM^2 \delta(M^2 - m_{\lambda}^{2}) |1|^1 D_F (x - y, M^2) \nonumber\\
+    & \implies  D_F (x - y, M^2) \underbrace{\int_{0}^{\infty} dM^2 \delta(M^2 - m_{\lambda}^{2})}_\text{$1$} \nonumber\\
+    & \implies D_F (x - y)
+\end{align}
+\subsection{Spectral Density for Interacting Theory}
+Now consider the interacting theory. We have
+\begin{equation}
+    \rho(\mu^2) = 2\pi \delta (\mu^2 - m^2) Z + \text{possible bound states} + \text{Multi-particle continuum}
+\end{equation}
+where 
+\begin{equation}
+    Z = |\mel{\Omega}{\phi(0)}{1 \text{ particle}}|^2
+\end{equation}
+is the field strength normalisation. Here $m$ is the physical mass of the particle (which may differ from the bare mass $m_0$ in the Lagrangian); $m$ is the observed mass of the particle. Examining the Fourier transform of the propagator:
+\begin{align}
+    \mel{\Omega}{  T\{ \phi(x) \phi(0)  \} }{\Omega} (p^2) & \equiv \int d^{n+1} x e^{ip\cdot x} \mel{\Omega}{ T\{  \phi(x) \phi(y) \} }{\Omega} \nonumber\\
+    & = \int d^{n+1} x e^{ip\cdot x} \int_{0}^{\rho} \frac{d\mu^2}{2\pi} \rho(\mu^2) F_{F}(x; \mu^2) \nonumber\\
+    & = \int_{0}^{\infty} \frac{d\mu^2}{2\pi} \rho(\mu^2) \frac{i}{p^2 - \mu^2 + i\epsilon} \nonumber\\
+    & = \frac{iz}{p^2 - m^2 + i\epsilon} + \text{bound states} + \int_{4m^2}^{\infty} \frac{d\mu^2}{2\pi} \rho(\mu^2) \frac{i}{p^2 - \mu^2 + i\epsilon} 
+\end{align}
+ 

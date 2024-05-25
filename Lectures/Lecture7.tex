@@ -1,0 +1,83 @@
+\section{New lecture: Tree Level $2\to 2$ Scattering in $\phi^4$ theory}
+
+(revision)
+Consider the Lagrangian
+\begin{equation}
+    \mathcal{L} = \frac{1}{2} \partial_\mu \phi_0 \partial^\mu \phi_0 - \frac{1}{2} m_{0}^{2} \phi_{0}^{2} - \frac{\lambda_0}{4!} \phi_{0}^{4}
+\end{equation}
+NB: The Lagrangian is in terms of bare, not normalised quantities. 
+
+For non-trivial interaction 
+
+
+
+$(\dots)$
+
+We now wish to go to the first non-trivial order $\mathcal{O}(\lambda^1)$ contribution to the Dyson series. Consider the first the numerator:
+
+\begin{align}
+\frac{-i\lambda}{4!} \int d^H x \mel{0}{ T\{  \phi_1 \phi_2 \phi_A \phi_B \phi_z\phi_z\phi_z\phi_z \} }{0}
+\end{align}
+By wicks theorem,the only non-zero contribution comes from fully contracting the field of the above equation.
+
+If we require all external points to be connected by tracing, then the contractions will look like the following
+
+(diagrams)
+
+These are topologically equivalent contractions. 
+
+
+(more diagrams)
+
+How many combinations are topologically equivalent?
+
+$$\phi_1  \phi_2 \phi_A \phi_B \phi_z \phi_z \phi_z \phi_z$$, there are $4$ ways to contract $1$ with $z$, $3$ remaining ways to contract $2$ with $z$, $2$ remaining ways to contract $A$ with $z$, $1$ remaining ways to contract $B$ with $z$. There are $4!$ totally different ways to contract them graphically. These are topologically equivalent contraction. 
+
+(More graphs)
+
+These contractions contribute to the $1$ in the $S-$matrix, i.e. no contribution to the $\mathcal{M}$. Another topologically inequivalent set of contractions: 
+$$\phi_1  \phi_2 \phi_A \phi_B \phi_z \phi_z \phi_z \phi_z$$
+(More diagrams)
+Returning to the equivalent, fully connected contractions, we have that $$-\frac{-i\lambda}{4!}  \int dz \mel{0}{T\{ \phi_1 \phi_2 \dots   \}}{0} = -i\lambda \int d^{n+1} 
+z D_F(y_A - z) D_F(y_B - z) D_F(z - x_1) D_F(z - x_2) $$
+NB: The cancellation of the $4!$ from the $4!$ possible equivalent contractions
+\begin{align}
+    = &  -i\lambda \int d^{n+1} z \int \frac{d^{n+1} p_1 }{(2\pi)^{n+1}} e^{-ip_i (y_A-z)} \frac{i}{p_{1}^2 - m^2 + i\epsilon } \nonumber\\
+   &  \int d^{n+1} z \int \frac{d^{n+1} p_1 }{(2\pi)^{n+1}} e^{-ip_2 (y_B-z)} \frac{i}{p_{2}^2 - m^2 + i\epsilon} \nonumber\\
+    & \int d^{n+1} z \int \frac{d^{n+1} p_1 }{(2\pi)^{n+1}} e^{-ip_3 (z-x_1)} \frac{i}{p_{3}^2 - m^2 + i\epsilon } \nonumber\\
+    & \int d^{n+1} z \int \frac{d^{n+1} p_1 }{(2\pi)^{n+1}} e^{-ip_4 (z-x_2)} \frac{i}{p_{4}^2 - m^2 + i\epsilon } \nonumber\\
+\end{align}
+We may simplify by considering 
+$$\int d^{n+1}  z e^{iz  (p_1 + p_2 - p_3 - p_4)} = (2\pi)^{n+1}  \delta^{n+1} (p_1 + p_2 - p_3- p_4) $$
+From LSZ we must consider 
+\begin{align}
+   &  \int d^{n+1} x_1 d^{n+1} x_2 d^{n+1} x_A d^{n+1} x_B e^{i (p_1 \cdot x_1 + p_2 \cdot x_2    - k_A y_A - K_B y_B  )} \nonumber\\
+   & i^4 \left( \Box_{x_1} + m^2  \right)\left( \Box_{x_1} + m^2  \right)\left( \Box_{x_1} + m^2  \right)\left( \Box_{x_1} + m^2  \right) \nonumber\\
+   & -i\lambda (\dots ) \text{ Finish later} \nonumber\\
+   & (2\pi)^{n+1} \delta^{n+1} (p_1 +p_2 - p_3 - p_4)
+\end{align}
+ Recall that at L.O, $m_{something} = m_0$. Also 
+ \begin{align}
+     \int d^{n+1} x_1 e^{ix_1  (p_3 p+ p_1)} & = (2\pi)^{n+1} \delta^{n+1} (p_3 + p_1) \nonumber \\
+     & \int \frac{d^{n+1} p^3 }{(2\pi)^{n+1}} (2\pi)^{n+1} \delta^{n+1} (p_3 + p_1) (2\pi)^{n+1} \delta^{n+1} (p_1 + p_2 - \underbrace{p_3}_\text{$p_3 = -p_1$} - p_4)
+ \end{align}
+numerator becomes 
+$-i\lambda  (2\pi)^{n+1} \delta^{n+1} \underbrace{(k_A + k_B - p_1 - p_2)}_\text{Overall energy momentum conservation}$
+
+
+(some stuff I have missed)
+
+
+Computing the Denominator:
+
+What about 
+\begin{align}
+   & \mel{0}{T\{ e^{-i \frac{\lambda}{4!} 
+ \int d^{n+1}  z \phi_{I}^{4} (z) }}  \}{0} \nonumber\\
+ & =
+\end{align}
+
+
+
+
+

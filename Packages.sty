@@ -1,0 +1,105 @@
+% Formatting
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage[titletoc,title]{appendix}
+
+\usepackage{amsmath,stackengine}
+\stackMath
+
+\usepackage{cancel}
+\usepackage{amsmath,amsfonts,amssymb,mathtools}
+
+\usepackage{graphicx,float}
+\usepackage{slashed}
+
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{algorithmic}
+\usepackage{dsfont} 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsthm}
+\newtheorem{definition}{Definition}
+\theoremstyle{definition} \newtheorem{defn}{Definition}[section] \newtheorem{conj}{Conjecture}[section] \newtheorem{exmp}{Example}[section] \theoremstyle{remark} \newtheorem*{rem}{Remark} \newtheorem*{note}{Note} \newtheorem{case}{Case}
+\theoremstyle{plain}% default
+\newtheorem{thm}{Theorem}[section] \newtheorem{lem}[thm]{Lemma} \newtheorem{prop}[thm]{Proposition} \newtheorem*{cor}{Corollary} \newtheorem*{KL}{Kleins Lemma}
+\newtheorem{theorem}{Theorem} \newtheorem{lemma}{Lemma}
+
+\newcommand{\dbar}{d\hspace*{-0.08em}\bar{}\hspace*{0.1em}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{1pt}{\baselineskip}\kern1pt}
+
+\newtheorem{corollary}{Corollary}[theorem]
+%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\usepackage{datetime}
+
+\fancyhf{}
+\fancyfoot[L]{\today\ \currenttime}
+\pagestyle{fancy}
+\fancyhead[R]{\thepage}
+%\renewcommand{\headrulewidth}{0.0pt}
+%\fancyhead[L]{\textbf{PHY4000W: Project}}
+\fancyhead[L]{\leftmark}
+%\fancyhead[C]{\textbf{SSB}}
+%\fancyhead[R]{\textbf{Classical System}}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[R]{\thepage}
+
+
+%%%%%%%%%%%%%%%%%%%%
+\usepackage{braket}
+\usepackage{physics}
+\usepackage{tabularx}
+
+\usepackage{parskip}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\usepackage{amsmath,amsfonts,amssymb,mathtools}
+
+\usepackage{graphicx,float}
+
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{algorithmic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{hyperref}
+\hypersetup{ pdfborder = {0 0 0}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% New Packages
+\usepackage{bm}
+\usepackage{calligra}
+\usepackage{hyperref}
+\usepackage{amsmath,amssymb}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{minted}
+\usemintedstyle{borland}
+\usepackage{booktabs}
+\usepackage{tabu}
+\usepackage[labelfont=bf, skip = 5pt, font = small]{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage[style = chem-acs,  articletitle=true]{biblatex}
+\addbibresource{references.bib}
+\usepackage{amsmath,amsfonts,amssymb,mathtools}
+\usepackage[version=4]{mhchem}
+\usepackage{lmodern}
+\usepackage{parskip}
+\usepackage{empheq}
+\usepackage{MnSymbol}
+% References
+% https://www.overleaf.com/learn/latex/Bibliography_management_in_LaTeX
+% https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management
+\usepackage{biblatex}
+\addbibresource{references.bib}
+%\renewcommand{\headrulewidth}{0.0pt}
+
+\title{RQM : Lecture Notes}
+\author{A Frankenstein}

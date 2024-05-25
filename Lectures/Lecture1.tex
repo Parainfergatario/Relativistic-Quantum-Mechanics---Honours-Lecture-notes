@@ -1,0 +1,141 @@
+\section{Lecture 1: Introductory concepts and some tools}  
+The purpose here is to make QM relativistic
+
+\subsection{Postulates of Quantum Mechanics}
+\begin{enumerate}
+    \item State vectors of the system is represented by a state vector $\ket{\psi(t)} \in \mathcal{H}$, a Hilbert space.
+    \item Observable are represented by essentially self adjoint operators that obey the Dirac quantization condition (DQC) where the classical Poisson bracket $\{ A, B \} = C$ by the DQC goes to $\comm{\hat{A}}{\hat{B}} = i\hat{C}$
+    \item If the system is in state $\ket{\psi}$ then a measurement of an observable represented by $\hat{\mathcal{O}}$ will be an eigenvalue of $\hat{\mathcal{O}}$
+\begin{equation}
+    \hat{\mathcal{O}}\ket{\omega} = \omega \ket{\omega} 
+\end{equation}
+with probability $p(\omega) \propto |\expval{\omega|\psi}|^2$ . The state of the system instantaneously changes from $\ket{\psi}$ to $\ket{\omega}$ (wave function collapse)
+
+\item $\ket{\psi(t)}$ evolves in time accordingly to the Schrodinger equation:
+\begin{equation}
+    i\partial_t \ket{\psi(t)} = \hat{H} \ket{\psi(t)}
+\end{equation}
+Often we have $\hat{H} = \frac{\hat{p}^2}{2m} + V(\hat{x})$
+
+\end{enumerate}
+
+\subsection{Postulates of Special Relativity}
+\begin{enumerate}
+    \item The law of physics are the same in all inertial frames:
+   \item Inertial frames moves with constant velocity with respect to each other.
+   \item Observers in different frames must agree on the results of experiments
+   \item The law of physics are the same in any inertial reference frame. All inertial observers must agree on the initial conditions of an experiment and on the equation of motion. 
+\end{enumerate}
+
+For example, the Klein-Gordon equation given by 
+\begin{equation}
+    (\Box_x + m^2)\psi(x) = 0
+\end{equation}
+which for another observer, in $x'$ coordinate is the same 
+\begin{equation}
+    (\Box_{x'} + m^2)\psi(x') = 0
+\end{equation}
+The field that they see is the same as that in the unprimed coordinate. 
+
+The speed of light is a constant  $c = 1$ in all inertial frames.  Physics lives on a pseudo-Riemannian space with metric
+\begin{equation}
+    \eta_{\mu \nu} = \begin{pmatrix} 
++ 1 & 0 & 0 & 0\\
+ 0 & -1 & 0 & 0\\
+0 & 0 & -1 & 0\\
+0 & 0 & 0 & -1
+\end{pmatrix}_{\mu \nu}
+\end{equation}
+which is the particle physics convention. \textbf{Time and space is treated on an equal footing}. Physical quantities transform under the Poincare group, of which the Lorentz group is a subgroup;
+Lorentz group $\implies$ Boost $+$ rotations
+Poincare $\implies$ Lorentz $+$ Translation
+$$\Lambda_{\nu}^{\mu} \in SO(1, n)$$we will most be working with $SO(1, 3)$ and they leave the metric unchanged. $$\Lambda_{\: \mu'}^{\mu} \Lambda_{\: \nu'}^{\nu} \eta^{\mu'\nu'} = \eta^{\mu \nu}$$
+The speed of light is a speed limit, information can only propagate at most of the speed of light. What are the possible conflicts between postulates of the QM and SR. 
+
+QM - Measurement is Probabilistic in QM but it is in general a deterministic theory
+SR - It is deterministic
+
+\textbf{Comment from class}: (In QM, time is a parameter will space is an operator and instant collapse goes against speed limit) - The EPR paradox, one has an entangled state, spin$-0$ pion decays into two photons. From angular momentum conservation, one knows that one photon has positive helicity and one has negative helicity. QM says that we cannot know ahead of time as to which photon has which helicity. Einstein says that suppose the pion decays halfway between the earth and the moon and a person has measured the photon helicity to be positive on earth then that person will instantly know its measurement on the moon,i.e. photon will have negative helicity but information cannot travel faster that the speed of light. Einstein says there has to be a hidden variable theory which underlies quantum mechanics which produces probabilistic interpretation that is observed but deep down the theory is completely deterministic. So the photon going to the moon knew it was going to be negative helicity while that one earth is positive helicity. (If there is a hidden variable theory then Bells inequality will be satisfied and if the inequality is violated then there cannot be a local hidden variable theory)
+
+The non-rel. Hamiltonian:
+$$\hat{H} = \frac{\hat{p}^2}{2m} + V(\hat{x})$$ To a relativistic Hamiltonian which is
+$$\hat{H}  = \sqrt{\hat{p}^2 + m^2}$$ Time and space still not on an equal footing  where $t$ is parameter and $\bm{\hat{x}}$ is an operator. The Schrodinger equation is linear in $t$ but quadratic in spatial variable.  Here we have two options
+\begin{enumerate}
+    \item Make time an operator (String theory-like approach)
+    \item Make Space a parameter (Particle Physics like approach)
+\end{enumerate}
+We will follow option $2$ in QFT.  Briefly considering how option $1$ works, in String theory, one considers embedding functions. In this approach, we have some parameter $\lambda \in \mathbb{R}$ in parameter space which gets mapped $x^{\mu}(\lambda)$ to a world-line in space-time. 
+
+Classically point particle motion is dictated by
+\begin{equation}\label{eq_NG}
+    S = -m\int d\lambda \sqrt{-\eta_{\mu \nu} \frac{dx^\mu}{d\lambda}\frac{dx^\nu}{d\lambda}  }
+\end{equation}
+The idea here is to promote $x^{\mu}(\lambda) \to \hat{x}^{\mu}(\lambda)$, one can then generalise \eqref{eq_NG}. Consider the world-sheet mapped out by a $1D$ object which is called the Nambu-Goto action
+\begin{equation}
+    S_{NG} = -\frac{1}{2\pi \alpha} \int d\tau d\sigma \sqrt{\det\left( - \eta_{\mu \nu} \partial_{a} \hat{x}^\mu \partial_b \hat{x}^\nu\right) }
+\end{equation}
+in order to extremize the world-sheet , where $\sigma^a = (\tau, \sigma)^a$. If the embedding functions are elevated to operators then we have a quantum string theory. 
+
+\subsection{The Relativistic (Quantum) Scalar Field}
+Scalars are important: e.g. Higgs, scalar or pseudo-scalar mesons such as $\Pi^0, K, \eta$. We are going to take symmetries as the fundamental organising principles of QFT, most important being Poincare invariance.
+
+In path integral language we seek Lagrangians that respect the symmetries that we postulate for physics. Path integrals perfectly preserve these symmetries at the classical level.
+
+NB: AT next-to-leading order and beyond, quantum mechanics may break these symmetries, known as anomaly. Anomalies are when a classical symmetry is broken (by QM). Lets first examine a real scalar field. We postulate that scalar particle are the quanta of a scalar field with Lagrange density (Lagrangian)
+\begin{equation}
+    \mathcal{L} \equiv \frac{1}{2} (\partial_{\mu} \phi_0) (\partial^\mu \phi_0) - \frac{1}{2} m_{0}^{2} \phi_{0}^{2} + \frac{1}{4!} \lambda_0 \phi_{0}^{4}
+\end{equation}
+NB: A Lorentz scalar. The actual Lagrangian 
+\begin{equation}
+    L = \int d^n x \mathcal{L}
+\end{equation}
+where the action
+\begin{equation}
+    \int dt L = \int d^{n+1} x \mathcal{L}
+\end{equation}
+We will work in $D = n+1$ dimensions. Two possible kinetic terms consistent with $\mathcal{L}$ is a Lorentz scalar:
+\begin{enumerate}
+    \item $\partial_{\mu} \phi \partial^\mu \phi$
+    \item $\phi \Box \phi$ 
+\end{enumerate}
+I've written the object in $\mathcal{L}$ as bare quantities $\phi_0, m_0, \lambda_0$ in anticipation of re-normalisation, of performing re-normalised quantum field theory. In renormalisation QFT, one re-writes $\psi_0, m_0, \lambda_0$ in terms of renormalised quantities $\phi_r, m_r, \lambda_r$. Connection between measured quantities and parameter of the theory. 
+
+Why do infinities emerge? Why is it difficult to connect physical quantities to the parameter of the theory? In QM, we have Heisenberg uncertainty, $\Delta E \Delta t \sim \hbar$ and in SR, $E = mc^2$ $\to$ particle-antiparticle pair production from vacuum possible. Consider an indistinguishable "particle", same type as $p$ at the origin and an anti-particle $\bar{p}$. The charge of $p$ (related to $\lambda$), the mass of $p$ (related to $m$), and the number of $p$ (related to $\phi$) all depend on the scale of which we make the measurement. Quantizing the free relativistic Scalar field. Postulate:
+\begin{equation}\label{new_eq_1}
+    \mathcal{L} = \frac{1}{2} \partial_\mu \phi \partial^\mu \phi - \frac{1}{2}m^2 \phi^2
+ \end{equation}
+
+We seek solutions $\phi(x)$ that satisfy the classical equations of motion from \eqref{new_eq_1} and satisfy QM $\Leftrightarrow$ implement DQC. We seek the full QM solution, spectrum and the eigenvectors. Here $\hat{\phi}(x^\mu)$ is the set of $D = n+1$ parameters. Lets perform dim. analysis. Key insight from path integrals 
+\begin{equation}
+    \sim \int \mathcal{D} \phi e^{iS}
+\end{equation}
+where $$S = \int d^{n+1} x \mathcal{L}$$
+where $[S] = 1$ is dimensionless. Since $[S] =1 \implies \left[  \int d^{n+1} x\mathcal{L}  \right] = 1$ and $[L] = [E]^{-1} \to \left[  \int d^{n+1} x \right][\mathcal{L}] = 1 \to L^{n+1} [\mathcal{L}] = 1 $, hence $[\mathcal{L}] = L^{-n-1} = E^{n+1}$ and $[\partial_\mu] = \frac{1}{L} = E$. We also have $[\partial_{\mu} \phi \partial^\mu \phi]  = [\partial_\mu]^2[\phi]^2 = E^{n+1}\to [\phi]^2 = E^{n+1} \to [\phi] = E^{\frac{n-1}{2}}$
+Hence $[m^2 \phi^2] =E^{n - 1} \to [m] = E$. From the Lagrangian density $\mathcal{L}$, we derive the classical EOM via the E-L equations
+\begin{equation}\label{KG_1}
+    (\Box_x + m^2) \phi(x) = 0 \quad \text{where}\quad \Box_x = \partial_\mu \partial^\mu
+\end{equation}
+gives the Klein-Gordon equation. Classical solution to  \eqref{KG_1} is given by Fourir decomposition:
+\begin{equation}\label{KG_2}
+    \phi(x) = \int \frac{d^n p}{(2\pi)^n 2E_{\bm{p}}} \left[ a(\bm{p}) e^{-ip \cdot x} + a^{*}(\bm{p}) e^{ip \cdot x}   \right]_{p^{0}=E_{\bm{p}} = \sqrt{\bm{p}^2 + m^2 }}
+\end{equation}
+\begin{enumerate}
+    \item Prove that \eqref{KG_2} solves \eqref{KG_1}: \begin{equation}
+        \left.\Box_x \phi(x) = -p^2 \phi(x) \right\vert_{p^0 = E_{\bm{p}} = \sqrt{\bm{p}^2} + m^2 }
+    \end{equation}
+
+hence 
+\begin{align}
+    (\Box_x + m^2)\phi(x) & = (-p^2 + m^2) \phi(x) \nonumber\\
+    & = \left( -((p^{0})^2 - \bm{p}^2)  + m^2 \right) \phi(x) \nonumber\\
+    & = \left( -(\bm{p}^2 + m^2 - \bm{p}^2)  + m^2 \right) \phi(x) \nonumber\\
+    & = 0
+\end{align}
+
+\item $\phi$ is real automatically, $\phi^{*}(x) = \phi(x)$
+
+\item We are on the right track: modes obey a relativistic dispersion relations, $E = \sqrt{\bm{p}^2 + m^2}$
+
+
+\end{enumerate}
+

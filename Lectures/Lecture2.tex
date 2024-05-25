@@ -1,0 +1,328 @@
+
+\section{Lecture 2: Quantizing the Real Field}
+
+\begin{equation}
+    \mathcal{L} = \frac{1}{2}\partial_{\mu} \phi \partial^\mu \phi - \frac{1}{2} m^2 \phi
+\end{equation}
+Classical EOM from $\delta S = 0 \implies $ E-L Equation.
+\begin{equation}\label{eq_11_22}
+    (\Box +m^2)\phi(x) = 0
+\end{equation}
+gives the Klein Gordon equation. The classical solution is given by
+\begin{equation}\label{eq_22_11}
+    \phi = \int \frac{d^n p}{(2\pi)^n 2E\bm{p}} \left[ a(\bm{p}) e^{-ip\cdot x} +  a^*(\bm{p}) e^{ip\cdot x} \right]
+\end{equation}
+where $a, a^* \in \mathbb{R}$.  
+\begin{enumerate}
+\item We can see that \eqref{eq_11_22} solves \eqref{eq_22_11}. 
+\item $\phi(x)$ automatically real, $\phi^*(x) = \phi(x)$
+\item Note $E_{\bm{p}} = \sqrt{\bm{p}^2 + m^2}$ is the relativistic dispersion relation.
+\end{enumerate}
+In order to quantize, we elevate $\phi(x) \to \hat{\phi}(x)$, the classical field to a operator
+\begin{equation}
+    \hat{\phi}(x) = \int \frac{d^n p}{(2\pi)^n 2E_{\bm{p}}} \left[ \hat{a}(\bm{p}) e^{-ip\cdot x} +  \hat{a}^{\dagger}_(\bm{p}) e^{ip\cdot x} \right]_{p^0 = E_{\bm{p}} = \sqrt{\bm{p}^2 + m^2}}
+\end{equation}
+This equation has nice properties:
+\begin{enumerate}
+    \item We have explicitly separated the classical evolution (in the Fourier modes) from quantum
+    \item $\hat{\phi}^{\dagger}(x) = \hat{\phi}(x)$ automatically
+    \item $[\phi] = E^{\frac{n-1}{2}}\implies [\hat{a}] = [\hat{a}^{\dagger}] = E^{(1-n)/2}$
+    \item We are working in the Heisenberg picture as out operator $\hat{\phi}$ depends explicitly on time via $x^{0}$
+\end{enumerate}
+We must now impose DQC, recall in non-relativistic quantum mechanics, we have $\{ A, B \} =C \to \comm{\hat{A}}{\hat{B}} = i\hat{C}$ where in NRQM $\comm{x}{p} = i$ and in $n-$dimensions $\comm{\hat{x}^i}{\hat{p}^j}  = i\delta^{ji}$
+We need generalised momentum $\hat{\Pi}$ conjugate to $\hat{\phi}$. In general classically
+\begin{equation}
+    \Pi = \frac{\partial \mathcal{L}}{\partial \partial_0 \phi }
+\end{equation}
+For the Klein-Gordon equation
+\begin{equation}
+    \implies \hat{\Pi}(x) = \frac{\partial \mathcal{L}}{\partial \partial_0 \hat{\phi}} = \frac{\partial \mathcal{L}}{\partial \partial_0 \hat{\phi}} \left[  \frac{1}{2} \partial_\mu \hat{\phi} \partial^\mu \hat{\phi} - \frac{1}{2} m^2 \hat{\phi}^2 \right] = \partial^0 \hat{\phi} = \partial_0 \hat{\phi}
+\end{equation}
+Applying it to the solutions
+\begin{align}
+  & =  \partial_0 \left\{  \int \frac{d^n p}{(2\pi)^n 2E_{\bm{p}}} \left[ \hat{a}_{\bm{p}} e^{-ip\cdot x} +  \hat{a}^{\dagger}_{\bm{p}} e^{ip\cdot x} \right]_{p^0 = E_{\bm{p}} = \sqrt{\bm{p}^2 + m^2}}   \right\} \nonumber\\
+  & = \int \frac{d^n p}{(2\pi)^n 2E_{\bm{p}}} \left[ \hat{a}_{\bm{p}}(-ip^0) e^{-ip\cdot x} +  \hat{a}^{\dagger}_{\bm{p}}(ip^0) e^{ip\cdot x} \right]_{p^0 = E_{\bm{p}} = \sqrt{\bm{p}^2 + m^2}} \nonumber\\
+  & = -i \int \frac{d^n p}{(2\pi)^n 2E_{\bm{p}}} p^0 \left[ \hat{a}_{\bm{p}} e^{-ip\cdot x} -  \hat{a}^{\dagger}_{\bm{p}} e^{ip\cdot x} \right]_{p^0 = E_{\bm{p}}}
+\end{align}
+
+How do we generalise $\comm{\hat{x}^i}{\hat{p}^j} = i\delta^{ij}$?
+We must choose a condition for $\phi(x), \Pi (y)$ such that field don't influence each other outside the light-cone. We will apply a equal time commutation relation:
+\begin{align}\label{label4}
+    \underbrace{\comm{\hat{\phi} (x^0, \bm{x})}{\hat{\Pi}(x^0, \bm{y})}}_\text{Equal time commutation relation} = i\underbrace{ \delta^{(n)} (\bm{x} - \bm{y}) }_\text{Contact interaction}
+\end{align}
+i.e. field can only influence each other at the same position when considered a the same time(in one reference frame).  Otherwise, fields could influence each other at space-time separations. What remains to be shown is that \eqref{label4} implies that
+\begin{equation}
+    \comm{\hat{\phi}(x)}{\hat{\Pi}(y)} = 0 \quad \text{for} \quad (x - y)^2 < 0
+\end{equation}
+since $(x-y)^2 = (x^0 - y^0)^2 - (\bm{x} - \bm{y})^2 = 0 - \text{Positive} < 0$
+i.e. spacetime separations (NB: not necessarily equal time). Having proposed this DQC, lets consider the consequences. Evaluate \eqref{label4}
+\begin{align}
+    \comm{\phi (x^0, \bm{x})}{\hat{\Pi} (x^0, \bm{y})}& =  \int \frac{d^n p}{(2\pi)^n 2E_{\bm{p}}} \left\{ \hat{a}_{\bm{p}} e^{-ip\cdot x} + \hat{a}_{\bm{p}}^{\dagger} e^{ip\cdot x} \right\}_{p^0 = \sqrt{\bm{p}^2 + m^2}}  \nonumber\\
+    & \frac{d^n q}{(2\pi)^n 2E_{\bm{q}}} (-iq^0) \left\{ \hat{a}_{\bm{q}} e^{-iq\cdot x} - \hat{a}_{\bm{q}}^{\dagger} e^{iq\cdot x} \right\}_{q^0 = \sqrt{\bm{q}^2 + m^2}} - \dots \nonumber\\
+    & = \text{Calculation dons in problem set} \nonumber\\
+    & = i\delta^{(n)} (\bm{x} - \bm{y})
+\end{align}
+
+Imposing the condition above, we claim
+\begin{equation}
+    \comm{\hat{a}_{\bm{p}}}{\hat{a}_{\bm{q}}^{\dagger}} = (2\pi)^n 2E_{\bm{p}} \delta^{(n)} (\bm{p} - \bm{q})
+\end{equation}
+which gives exactly
+\begin{equation}
+    \comm{\hat{\phi}(x^0, \bm{x})}{\hat{\Pi}  (x^0, \bm{y}) } = i\delta^{n} (\bm{x} - \bm{y})
+\end{equation}
+
+Check using dimensional analysis $[\hat{a}] = \hat{a}^\dagger = E^{\frac{1-n}{2}}$. We want to interpret our results. In order to do so, we want to solve our QM problem, i.e. find the spectrum (energy eigenvalue) and eigen-basis. To do so, we need the Hamiltonian. We find the Hamiltonian from
+ \begin{enumerate}
+     \item 
+     \begin{equation}
+         \hat{H} = \int d^n x \hat{\mathcal{H}} = \int d^n x (\hat{\phi} \hat{\Pi} - \mathcal{L})
+     \end{equation}
+     \item $$\hat{H} = \int d^n x \hat{T}^{00} = \hat{p}^0  \implies \hat{p}^\mu = \int d^n x \hat{T}^{0\mu}$$
+ \end{enumerate}
+
+Seek $\hat{T}^{\mu \nu}$, the conserved current associated with translation invariance of the theory.
+
+\subsection{Noether's Theorem}
+Suppose the Lagrangian possesses a symmetry, i.e. lets suppose $\mathcal{L}(\phi, \partial_\mu \phi)$ under some transformation, transform like (which may or many not be a symmetry transformation of the Lagrangian)
+$$\phi(x) \to \phi(x) + \alpha \Delta \phi$$
+(where $\alpha$ is potentially small parameter)
+How does the Lagrangian change? The Lagrangian lagrangian transforms as 
+\begin{equation}\label{compare_tau}
+    \mathcal{L} \to \mathcal{L} + \alpha \partial_\mu \mathcal{J}^{\mu}
+\end{equation}
+where the second term representing the total divergence is not necessarily there. Then the EOM are unchanged. Then at the same time, we must have that
+\begin{align}
+    \mathcal{L} (\phi, \partial_\mu \phi) & \to \mathcal{L} (\phi + \alpha \Delta \phi, \partial_\mu (\phi + \alpha \Delta \phi)) \nonumber\\
+    & =   \mathcal{L} (\phi, \partial_\mu \phi) + \frac{\partial \mathcal{L}}{\partial \phi} \alpha \Delta \phi + \frac{\partial \mathcal{L}}{\partial \partial_\mu \phi} \partial_\mu (\alpha \Delta \phi) + \mathcal{O}(\alpha^2) 
+\end{align}
+where 
+\begin{equation}
+    \frac{\partial \mathcal{L}}{\partial \partial_\mu \phi} \partial_\mu (\alpha \Delta \phi) = \partial_\mu \left[  \frac{\partial \mathcal{L}}{\partial \partial_\mu \phi}  (\alpha \Delta \phi)  \right]- \alpha \Delta \phi \partial_{\mu} \frac{\partial \mathcal{L}}{\partial  \partial_\mu \phi} 
+\end{equation}
+which then becomes \begin{align}\label{compare_mu}
+    \mathcal{L} (\phi, \partial_\mu \phi) + \alpha \Delta \phi \left[\underbrace{ \frac{\partial \mathcal{L}}{\partial \phi} -  \partial_{\mu} \frac{\partial \mathcal{L}}{\partial \partial_\mu \phi}}_\text{$ = 0$ by E-L} \right] + \partial_\mu \left[  \frac{\partial \mathcal{L}}{\partial \partial_\mu \phi} \alpha \Delta \phi \right] + \mathcal{O} (\epsilon^2)
+\end{align}
+hence if we compare \eqref{compare_tau} and \eqref{compare_mu}, we find
+\begin{align}
+        & \mathcal{L} (\phi, \partial_\mu \phi) +  \partial_\mu \left[  \frac{\partial \mathcal{L}}{\partial \partial_\mu \phi} \alpha \Delta \phi \right] = \mathcal{L} + \alpha \partial_\mu \mathcal{J}^\mu \nonumber\\
+        & \implies \partial_\mu \underbrace{\left[ \frac{\partial \mathcal{L}}{\partial \partial_\mu \phi} \Delta \phi -  \mathcal{J}^{\mu} \right]}_\text{$\equiv j^{\mu}$ : current} = 0
+\end{align}
+where $\partial_\mu j^\mu = 0$,  Divergence of current is $0$. We may define a conserved current charge.
+\begin{equation}
+    Q \equiv \int d^n x j^{0}(x)
+\end{equation}
+where
+\begin{align}
+    \frac{dQ}{dt} & = \int_{\Omega} d^n x \left[ \frac{dj^0}{dt}  = -\partial_i j^i  \right] \nonumber\\
+    & = -\int_{\partial \Omega } d^{n-1} x \hat{n} \cdot \bm{j} \nonumber\\
+    & =_{\text{(at infinity)}} 0
+\end{align}
+by a symmetry transformation. If transformation is a symmetry transformation, the EOM are unchanged.
+
+\subsubsection{Noether's theorem for Klein-Gordon equation}
+The Lagrangian for the system can be written as
+\begin{equation}
+    \mathcal{L} = \frac{1}{2} \partial_\mu \phi \partial^\mu \phi - \frac{1}{2} m^2 \phi^2
+\end{equation}
+yields
+\begin{equation}
+    T^{\mu \nu} = \frac{\partial \mathcal{L}}{\partial \partial_{\mu} \phi } \partial^0 \phi  - \eta^{\mu \nu} \mathcal{L}  = \partial^\mu \phi \partial^0 \phi - \eta^{\mu \nu}  \left[ \frac{1}{2} \partial_{\alpha} \phi \partial^\alpha \phi - \frac{1}{2} m^2 \phi^2   \right]
+\end{equation}
+$\implies \partial_{\mu}T^{\mu \nu} = 0$, hence
+\begin{equation}
+    \frac{d}{dt} p^\nu = \frac{d}{dt} \int d^n x T^{0\nu}  = 0
+\end{equation}
+Conserved change associated with the field, associate $p^\nu$ with the momentum in the field. One may work out that
+\begin{align}
+    \hat{p}^{\mu} & = \int d^n x \hat{T}^{0 \mu} = \int \frac{d^n p}{(2\pi)^n 2E_{\bm{p}}} p^\mu \left[ \hat{a}^{\dagger}_{\bm{p}} \hat{a}_{\bm{p}} + (2\pi)^n 2p^0 \delta^{(n)} (\bm{0}) \right] \nonumber\\
+    & \implies \int \frac{d^n p}{(2\pi)^n 2E_{\bm{p}}} p^\mu  \underbrace{\hat{a}^{\dagger}_{\bm{p}} \hat{a}_{\bm{p}} }_\text{$\hat{N}$}
+\end{align}
+where $\hat{N}$ denotes the number operator weighted by the momentum mode $p^\mu$.We see that the momentum ($4-$momentum) in the field is the sum of the momenta of each quantum in the field configuration. For example
+\begin{equation}
+    \hat{H} = \hat{p}^0 =  \int \frac{d^n p}{(2\pi)^n 2E_{\bm{p}}} E_{\bm{p}}  \hat{a}^{\dagger}_{\bm{p}} \hat{a}_{\bm{p}}
+\end{equation}
+Number operator depends only one the spatial momentum part.
+
+Suppose we have a momentum eigenstate $\hat{H}\ket{E} = E\ket{E}$ then $$\hat{H} [\hat{a}_{\bm{q}}^{\dagger} \ket{E}] = (E + E_{\bm{q}}) \hat{a}_{\bm{q}}^{\dagger} \ket{E}$$. Similarly 
+$$\hat{H} [\hat{a}_{\bm{q}} \ket{E}] = (E - E_{\bm{q}}) \hat{a}_{\bm{q}} \ket{E}$$For all eigenstate $\ket{0}$, for which $\hat{H}\ket{0} = 0\ket{0}$ with $\expval{0|0} = 1$ properly normalised. Since it's the lowest energy eigenstate, $\hat{a}_{\bm{p}} \ket{0}  =0$. In general we will have that for momentum in the field $\hat{p}^\mu$, when we consider a single raising operator acting on the lowest state, we find
+\begin{equation}
+     \hat{a}_{\bm{q}}^{\dagger} \ket{0} = q^\mu \hat{a}_{\bm{q}}^{\dagger} \ket{0}
+\end{equation}
+so we write $\hat{a}_{\bm{q}}^{\dagger} \ket{0} = \ket{\bm{q}}$. In general, a general basis vector for our Hilbert space is given by $$\dots (\hat{a}_{\bm{p}}^{\dagger})^{n_{\bm{p}}} \dots(\hat{a}_{\bm{q}}^{\dagger})^{n_{\bm{q}}} \dots \ket{0}  \equiv \ket{\dots n_{\bm{p}} \dots n_{\bm{q}} \dots }$$
+We have fully solved our QM problem. We have the eigen-basis for our Hilbert space and the spectrum of energies. Let us interpret the results: In particular, our quanta come in discrete numbers: $n_{\bm{p}}= 0, 1, 2. \dots$ Each quantum contributes an energy $E$ and momentum $\bm{p}$ to our field, where $E = \sqrt{\bm{p}^2 +m^2}$. Each spectrum contributes a spin to the angular momentum of the field (the spin is $0$). The quanta have a statistics: Bose statistics. Our quanta are charges. These are all properties we associate with particles. we this make the intellectual leap and interpret the quanta that make up our field $\hat{\phi}(x)$ as particles of mass $m$, spin$-0$ and no charge. Given what we know now, lets examine 
+\begin{align}
+    \hat{\phi}(x)\ket{0} & = \int \frac{d^n p}{(2\pi)^n 2E_{\bm{p}}} \left\{ \hat{a}_{\bm{p}} e^{-ip\cdot x} + \hat{a}_{\bm{p}}^{\dagger} e^{ip\cdot x} \right\}\ket{0} \nonumber\\
+    & = \int \frac{d^n p}{(2\pi)^n 2E_{\bm{p}}} e^{ip\cdot x} \ket{\bm{p}} \nonumber\\
+    & = \int \frac{d^n p}{(2\pi)^n 2E_{\bm{p}}} e^{itE} e^{-\bm{p}\cdot \bm{x}} \ket{\bm{p}}
+\end{align}
+which is a familiar result from non-relativistic QM. Recall from NRQM, we have 
+\begin{equation}
+    \ket{\bm{x}} = \int \frac{d^n p}{(2\pi)^n} e^{-i\bm{p}\cdot \bm{x}} \ket{\bm{p}}
+\end{equation}
+We will therefore interpret $\hat{\phi}(x)$ as creating a particle at spacetime position $x^\mu$. Recalling the renormalisation discussion, we can see why wavefunction renormalization discussion, we can see why wavefunction renormalization $\hat{\phi}_0 \to \hat{\phi}_r$ is related to the dependence of the number of particles in the field at some scale.
+
+Consider the dimensional analysis on the objects defined so far. $\expval{0|0} = 1 \implies [\ket{0}] = 1$ since $[\hat{a}_{\bm{p}}^{\dagger}] = E^{\frac{1-n}{2}} \implies [\ket{\bm{p}}] = [\hat{a}_{\bm{p}}^{\dagger} \ket{0} ]  = E^{\frac{1-n}{2}}$ 
+Consider the inner product of two momentum eigenstates
+$$\expval{\bm{k}|\bm{p}} = \mel{0}{\hat{a}_{\bm{k}} \hat{a}_{\bm{p}}^{\dagger} }{0} = \dots  = (2\pi)^n 2E_{\bm{p}} \delta^n (\bm{p} - \bm{k})$$
+and finally for the dimensions of $$1 = \expval{\psi|\psi} = \mel{\psi}{\int d^n x \ket{x} \bra{x}}{\psi} = \int d^n x |\expval{\psi|x}|^2$$
+which is $[|\expval{\psi(x)}|^2] = \frac{1}{L^n} \implies \expval{\psi|\psi} \sim L^{-n/2}$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
